@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HoatDongUEHModelStoreContainer" CdmEntityContainer="HoatDongUEHEntities">
+    <EntitySetMapping Name="ConNguois">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.ConNguoi">
+        <MappingFragment StoreEntitySet="ConNguoi">
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="NoiSinh" ColumnName="NoiSinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="MaNienKhoa" ColumnName="MaNienKhoa" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="HoChuLot" ColumnName="HoChuLot" />
+          <ScalarProperty Name="MaSinhVien" ColumnName="MaSinhVien" />
+          <ScalarProperty Name="MaConNguoi" ColumnName="MaConNguoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConNguoiLops">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.ConNguoiLop">
+        <MappingFragment StoreEntitySet="ConNguoiLop">
+          <ScalarProperty Name="MaConNguoi" ColumnName="MaConNguoi" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CoSoes">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.CoSo">
+        <MappingFragment StoreEntitySet="CoSo">
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaCoSo" ColumnName="MaCoSo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonVis">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.DonVi">
+        <MappingFragment StoreEntitySet="DonVi">
+          <ScalarProperty Name="TenDonVi" ColumnName="TenDonVi" />
+          <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoatDongs">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.HoatDong">
+        <MappingFragment StoreEntitySet="HoatDong">
+          <ScalarProperty Name="Targets" ColumnName="Targets" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+          <ScalarProperty Name="DiemDanhGia" ColumnName="DiemDanhGia" />
+          <ScalarProperty Name="SLSV" ColumnName="SLSV" />
+          <ScalarProperty Name="HocKi" ColumnName="HocKi" />
+          <ScalarProperty Name="MaNhomHoatDong" ColumnName="MaNhomHoatDong" />
+          <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
+          <ScalarProperty Name="NgayToChuc" ColumnName="NgayToChuc" />
+          <ScalarProperty Name="TenHoatDong" ColumnName="TenHoatDong" />
+          <ScalarProperty Name="MaHoatDong" ColumnName="MaHoatDong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoatDongConNguois">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.HoatDongConNguoi">
+        <MappingFragment StoreEntitySet="HoatDongConNguoi">
+          <ScalarProperty Name="MaVaiTro" ColumnName="MaVaiTro" />
+          <ScalarProperty Name="MaConNguoi" ColumnName="MaConNguoi" />
+          <ScalarProperty Name="MaHoatDong" ColumnName="MaHoatDong" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoatDongCoSoes">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.HoatDongCoSo">
+        <MappingFragment StoreEntitySet="HoatDongCoSo">
+          <ScalarProperty Name="NgayKTDatBan" ColumnName="NgayKTDatBan" />
+          <ScalarProperty Name="NgayDBDatBan" ColumnName="NgayDBDatBan" />
+          <ScalarProperty Name="MaCoSo" ColumnName="MaCoSo" />
+          <ScalarProperty Name="MaHoatDong" ColumnName="MaHoatDong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lops">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.Lop">
+        <MappingFragment StoreEntitySet="Lop">
+          <ScalarProperty Name="Loai" ColumnName="Loai" />
+          <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+          <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhomHoatDongs">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.NhomHoatDong">
+        <MappingFragment StoreEntitySet="NhomHoatDong">
+          <ScalarProperty Name="TenNhomHoatDong" ColumnName="TenNhomHoatDong" />
+          <ScalarProperty Name="MaNhomHoatDong" ColumnName="MaNhomHoatDong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NienKhoas">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.NienKhoa">
+        <MappingFragment StoreEntitySet="NienKhoa">
+          <ScalarProperty Name="TenNienKhoa" ColumnName="TenNienKhoa" />
+          <ScalarProperty Name="MaNienKhoa" ColumnName="MaNienKhoa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VaiTroes">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.VaiTro">
+        <MappingFragment StoreEntitySet="VaiTro">
+          <ScalarProperty Name="TenVaiTro" ColumnName="TenVaiTro" />
+          <ScalarProperty Name="MaVaiTro" ColumnName="MaVaiTro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoatDongCuocThiHots">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.HoatDongCuocThiHot">
+        <MappingFragment StoreEntitySet="HoatDongCuocThiHot">
+          <ScalarProperty Name="Targets" ColumnName="Targets" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+          <ScalarProperty Name="DiemDanhGia" ColumnName="DiemDanhGia" />
+          <ScalarProperty Name="SLSV" ColumnName="SLSV" />
+          <ScalarProperty Name="HocKi" ColumnName="HocKi" />
+          <ScalarProperty Name="MaNhomHoatDong" ColumnName="MaNhomHoatDong" />
+          <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
+          <ScalarProperty Name="NgayToChuc" ColumnName="NgayToChuc" />
+          <ScalarProperty Name="TenHoatDong" ColumnName="TenHoatDong" />
+          <ScalarProperty Name="MaHoatDong" ColumnName="MaHoatDong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoatDongCuocThiOnGoings">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.HoatDongCuocThiOnGoing">
+        <MappingFragment StoreEntitySet="HoatDongCuocThiOnGoing">
+          <ScalarProperty Name="Targets" ColumnName="Targets" />
+          <ScalarProperty Name="Benefits" ColumnName="Benefits" />
+          <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+          <ScalarProperty Name="DiemDanhGia" ColumnName="DiemDanhGia" />
+          <ScalarProperty Name="SLSV" ColumnName="SLSV" />
+          <ScalarProperty Name="HocKi" ColumnName="HocKi" />
+          <ScalarProperty Name="MaNhomHoatDong" ColumnName="MaNhomHoatDong" />
+          <ScalarProperty Name="MaDonVi" ColumnName="MaDonVi" />
+          <ScalarProperty Name="NgayToChuc" ColumnName="NgayToChuc" />
+          <ScalarProperty Name="TenHoatDong" ColumnName="TenHoatDong" />
+          <ScalarProperty Name="MaHoatDong" ColumnName="MaHoatDong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DangNhaps">
+      <EntityTypeMapping TypeName="HoatDongUEHModel.DangNhap">
+        <MappingFragment StoreEntitySet="DangNhap">
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="MaSinhVien" ColumnName="MaSinhVien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

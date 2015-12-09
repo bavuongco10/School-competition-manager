@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HoatDongUEHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="HoatDongUEHEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ConNguois" EntityType="HoatDongUEHModel.ConNguoi" />
+    <EntitySet Name="ConNguoiLops" EntityType="HoatDongUEHModel.ConNguoiLop" />
+    <EntitySet Name="CoSoes" EntityType="HoatDongUEHModel.CoSo" />
+    <EntitySet Name="DonVis" EntityType="HoatDongUEHModel.DonVi" />
+    <EntitySet Name="HoatDongs" EntityType="HoatDongUEHModel.HoatDong" />
+    <EntitySet Name="HoatDongConNguois" EntityType="HoatDongUEHModel.HoatDongConNguoi" />
+    <EntitySet Name="HoatDongCoSoes" EntityType="HoatDongUEHModel.HoatDongCoSo" />
+    <EntitySet Name="Lops" EntityType="HoatDongUEHModel.Lop" />
+    <EntitySet Name="NhomHoatDongs" EntityType="HoatDongUEHModel.NhomHoatDong" />
+    <EntitySet Name="NienKhoas" EntityType="HoatDongUEHModel.NienKhoa" />
+    <EntitySet Name="sysdiagrams" EntityType="HoatDongUEHModel.sysdiagram" />
+    <EntitySet Name="VaiTroes" EntityType="HoatDongUEHModel.VaiTro" />
+    <AssociationSet Name="FK_ConNguoi_NienKhoa" Association="HoatDongUEHModel.FK_ConNguoi_NienKhoa">
+      <End Role="NienKhoa" EntitySet="NienKhoas" />
+      <End Role="ConNguoi" EntitySet="ConNguois" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConNguoiLop_ConNguoi" Association="HoatDongUEHModel.FK_ConNguoiLop_ConNguoi">
+      <End Role="ConNguoi" EntitySet="ConNguois" />
+      <End Role="ConNguoiLop" EntitySet="ConNguoiLops" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoatDongConNguoi_ConNguoi" Association="HoatDongUEHModel.FK_HoatDongConNguoi_ConNguoi">
+      <End Role="ConNguoi" EntitySet="ConNguois" />
+      <End Role="HoatDongConNguoi" EntitySet="HoatDongConNguois" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConNguoiLop_Lop" Association="HoatDongUEHModel.FK_ConNguoiLop_Lop">
+      <End Role="Lop" EntitySet="Lops" />
+      <End Role="ConNguoiLop" EntitySet="ConNguoiLops" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoatDongCoSo_CoSo" Association="HoatDongUEHModel.FK_HoatDongCoSo_CoSo">
+      <End Role="CoSo" EntitySet="CoSoes" />
+      <End Role="HoatDongCoSo" EntitySet="HoatDongCoSoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoatDong_DonVi" Association="HoatDongUEHModel.FK_HoatDong_DonVi">
+      <End Role="DonVi" EntitySet="DonVis" />
+      <End Role="HoatDong" EntitySet="HoatDongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoatDong_NhomHoatDong" Association="HoatDongUEHModel.FK_HoatDong_NhomHoatDong">
+      <End Role="NhomHoatDong" EntitySet="NhomHoatDongs" />
+      <End Role="HoatDong" EntitySet="HoatDongs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoatDongConNguoi_HoatDong" Association="HoatDongUEHModel.FK_HoatDongConNguoi_HoatDong">
+      <End Role="HoatDong" EntitySet="HoatDongs" />
+      <End Role="HoatDongConNguoi" EntitySet="HoatDongConNguois" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoatDongCoSo_HoatDong" Association="HoatDongUEHModel.FK_HoatDongCoSo_HoatDong">
+      <End Role="HoatDong" EntitySet="HoatDongs" />
+      <End Role="HoatDongCoSo" EntitySet="HoatDongCoSoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoatDongConNguoi_VaiTro" Association="HoatDongUEHModel.FK_HoatDongConNguoi_VaiTro">
+      <End Role="VaiTro" EntitySet="VaiTroes" />
+      <End Role="HoatDongConNguoi" EntitySet="HoatDongConNguois" />
+    </AssociationSet>
+    <EntitySet Name="HoatDongCuocThiHots" EntityType="HoatDongUEHModel.HoatDongCuocThiHot" />
+    <EntitySet Name="HoatDongCuocThiOnGoings" EntityType="HoatDongUEHModel.HoatDongCuocThiOnGoing" />
+    <EntitySet Name="DangNhaps" EntityType="HoatDongUEHModel.DangNhap" />
+  </EntityContainer>
+  <EntityType Name="ConNguoi">
+    <Key>
+      <PropertyRef Name="MaConNguoi" />
+    </Key>
+    <Property Name="MaConNguoi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaSinhVien" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HoChuLot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ten" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MaNienKhoa" Type="Int32" />
+    <Property Name="GioiTinh" Type="Boolean" />
+    <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+    <Property Name="NoiSinh" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NienKhoa" Relationship="HoatDongUEHModel.FK_ConNguoi_NienKhoa" FromRole="ConNguoi" ToRole="NienKhoa" />
+    <NavigationProperty Name="ConNguoiLops" Relationship="HoatDongUEHModel.FK_ConNguoiLop_ConNguoi" FromRole="ConNguoi" ToRole="ConNguoiLop" />
+    <NavigationProperty Name="HoatDongConNguois" Relationship="HoatDongUEHModel.FK_HoatDongConNguoi_ConNguoi" FromRole="ConNguoi" ToRole="HoatDongConNguoi" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ConNguoiLop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaLop" Type="Int32" />
+    <Property Name="MaConNguoi" Type="Int32" />
+    <NavigationProperty Name="ConNguoi" Relationship="HoatDongUEHModel.FK_ConNguoiLop_ConNguoi" FromRole="ConNguoiLop" ToRole="ConNguoi" />
+    <NavigationProperty Name="Lop" Relationship="HoatDongUEHModel.FK_ConNguoiLop_Lop" FromRole="ConNguoiLop" ToRole="Lop" />
+  </EntityType>
+  <EntityType Name="CoSo">
+    <Key>
+      <PropertyRef Name="MaCoSo" />
+    </Key>
+    <Property Name="MaCoSo" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="DiaChi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HoatDongCoSoes" Relationship="HoatDongUEHModel.FK_HoatDongCoSo_CoSo" FromRole="CoSo" ToRole="HoatDongCoSo" />
+  </EntityType>
+  <EntityType Name="DonVi">
+    <Key>
+      <PropertyRef Name="MaDonVi" />
+    </Key>
+    <Property Name="MaDonVi" Type="Int32" Nullable="false" />
+    <Property Name="TenDonVi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HoatDongs" Relationship="HoatDongUEHModel.FK_HoatDong_DonVi" FromRole="DonVi" ToRole="HoatDong" />
+  </EntityType>
+  <EntityType Name="HoatDong">
+    <Key>
+      <PropertyRef Name="MaHoatDong" />
+    </Key>
+    <Property Name="MaHoatDong" Type="Int32" Nullable="false" />
+    <Property Name="TenHoatDong" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NgayToChuc" Type="DateTime" Precision="0" />
+    <Property Name="MaDonVi" Type="Int32" />
+    <Property Name="MaNhomHoatDong" Type="Int32" />
+    <Property Name="HocKi" Type="Boolean" />
+    <Property Name="SLSV" Type="Int32" />
+    <Property Name="DiemDanhGia" Type="Single" />
+    <Property Name="GiaVe" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Requirements" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Benefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Targets" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="DonVi" Relationship="HoatDongUEHModel.FK_HoatDong_DonVi" FromRole="HoatDong" ToRole="DonVi" />
+    <NavigationProperty Name="NhomHoatDong" Relationship="HoatDongUEHModel.FK_HoatDong_NhomHoatDong" FromRole="HoatDong" ToRole="NhomHoatDong" />
+    <NavigationProperty Name="HoatDongConNguois" Relationship="HoatDongUEHModel.FK_HoatDongConNguoi_HoatDong" FromRole="HoatDong" ToRole="HoatDongConNguoi" />
+    <NavigationProperty Name="HoatDongCoSoes" Relationship="HoatDongUEHModel.FK_HoatDongCoSo_HoatDong" FromRole="HoatDong" ToRole="HoatDongCoSo" />
+  </EntityType>
+  <EntityType Name="HoatDongConNguoi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaHoatDong" Type="Int32" />
+    <Property Name="MaConNguoi" Type="Int32" />
+    <Property Name="MaVaiTro" Type="Int32" />
+    <NavigationProperty Name="ConNguoi" Relationship="HoatDongUEHModel.FK_HoatDongConNguoi_ConNguoi" FromRole="HoatDongConNguoi" ToRole="ConNguoi" />
+    <NavigationProperty Name="HoatDong" Relationship="HoatDongUEHModel.FK_HoatDongConNguoi_HoatDong" FromRole="HoatDongConNguoi" ToRole="HoatDong" />
+    <NavigationProperty Name="VaiTro" Relationship="HoatDongUEHModel.FK_HoatDongConNguoi_VaiTro" FromRole="HoatDongConNguoi" ToRole="VaiTro" />
+  </EntityType>
+  <EntityType Name="HoatDongCoSo">
+    <Key>
+      <PropertyRef Name="MaHoatDong" />
+      <PropertyRef Name="MaCoSo" />
+    </Key>
+    <Property Name="MaHoatDong" Type="Int32" Nullable="false" />
+    <Property Name="MaCoSo" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="NgayDBDatBan" Type="DateTime" Precision="0" />
+    <Property Name="NgayKTDatBan" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="CoSo" Relationship="HoatDongUEHModel.FK_HoatDongCoSo_CoSo" FromRole="HoatDongCoSo" ToRole="CoSo" />
+    <NavigationProperty Name="HoatDong" Relationship="HoatDongUEHModel.FK_HoatDongCoSo_HoatDong" FromRole="HoatDongCoSo" ToRole="HoatDong" />
+  </EntityType>
+  <EntityType Name="Lop">
+    <Key>
+      <PropertyRef Name="MaLop" />
+    </Key>
+    <Property Name="MaLop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenLop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Loai" Type="Boolean" />
+    <NavigationProperty Name="ConNguoiLops" Relationship="HoatDongUEHModel.FK_ConNguoiLop_Lop" FromRole="Lop" ToRole="ConNguoiLop" />
+  </EntityType>
+  <EntityType Name="NhomHoatDong">
+    <Key>
+      <PropertyRef Name="MaNhomHoatDong" />
+    </Key>
+    <Property Name="MaNhomHoatDong" Type="Int32" Nullable="false" />
+    <Property Name="TenNhomHoatDong" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HoatDongs" Relationship="HoatDongUEHModel.FK_HoatDong_NhomHoatDong" FromRole="NhomHoatDong" ToRole="HoatDong" />
+  </EntityType>
+  <EntityType Name="NienKhoa">
+    <Key>
+      <PropertyRef Name="MaNienKhoa" />
+    </Key>
+    <Property Name="MaNienKhoa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNienKhoa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="ConNguois" Relationship="HoatDongUEHModel.FK_ConNguoi_NienKhoa" FromRole="NienKhoa" ToRole="ConNguoi" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="VaiTro">
+    <Key>
+      <PropertyRef Name="MaVaiTro" />
+    </Key>
+    <Property Name="MaVaiTro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenVaiTro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="HoatDongConNguois" Relationship="HoatDongUEHModel.FK_HoatDongConNguoi_VaiTro" FromRole="VaiTro" ToRole="HoatDongConNguoi" />
+  </EntityType>
+  <Association Name="FK_ConNguoi_NienKhoa">
+    <End Type="HoatDongUEHModel.NienKhoa" Role="NienKhoa" Multiplicity="0..1" />
+    <End Type="HoatDongUEHModel.ConNguoi" Role="ConNguoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NienKhoa">
+        <PropertyRef Name="MaNienKhoa" />
+      </Principal>
+      <Dependent Role="ConNguoi">
+        <PropertyRef Name="MaNienKhoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConNguoiLop_ConNguoi">
+    <End Type="HoatDongUEHModel.ConNguoi" Role="ConNguoi" Multiplicity="0..1" />
+    <End Type="HoatDongUEHModel.ConNguoiLop" Role="ConNguoiLop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConNguoi">
+        <PropertyRef Name="MaConNguoi" />
+      </Principal>
+      <Dependent Role="ConNguoiLop">
+        <PropertyRef Name="MaConNguoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoatDongConNguoi_ConNguoi">
+    <End Type="HoatDongUEHModel.ConNguoi" Role="ConNguoi" Multiplicity="0..1" />
+    <End Type="HoatDongUEHModel.HoatDongConNguoi" Role="HoatDongConNguoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ConNguoi">
+        <PropertyRef Name="MaConNguoi" />
+      </Principal>
+      <Dependent Role="HoatDongConNguoi">
+        <PropertyRef Name="MaConNguoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConNguoiLop_Lop">
+    <End Type="HoatDongUEHModel.Lop" Role="Lop" Multiplicity="0..1" />
+    <End Type="HoatDongUEHModel.ConNguoiLop" Role="ConNguoiLop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lop">
+        <PropertyRef Name="MaLop" />
+      </Principal>
+      <Dependent Role="ConNguoiLop">
+        <PropertyRef Name="MaLop" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoatDongCoSo_CoSo">
+    <End Type="HoatDongUEHModel.CoSo" Role="CoSo" Multiplicity="1" />
+    <End Type="HoatDongUEHModel.HoatDongCoSo" Role="HoatDongCoSo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CoSo">
+        <PropertyRef Name="MaCoSo" />
+      </Principal>
+      <Dependent Role="HoatDongCoSo">
+        <PropertyRef Name="MaCoSo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoatDong_DonVi">
+    <End Type="HoatDongUEHModel.DonVi" Role="DonVi" Multiplicity="0..1" />
+    <End Type="HoatDongUEHModel.HoatDong" Role="HoatDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DonVi">
+        <PropertyRef Name="MaDonVi" />
+      </Principal>
+      <Dependent Role="HoatDong">
+        <PropertyRef Name="MaDonVi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoatDong_NhomHoatDong">
+    <End Type="HoatDongUEHModel.NhomHoatDong" Role="NhomHoatDong" Multiplicity="0..1" />
+    <End Type="HoatDongUEHModel.HoatDong" Role="HoatDong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhomHoatDong">
+        <PropertyRef Name="MaNhomHoatDong" />
+      </Principal>
+      <Dependent Role="HoatDong">
+        <PropertyRef Name="MaNhomHoatDong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoatDongConNguoi_HoatDong">
+    <End Type="HoatDongUEHModel.HoatDong" Role="HoatDong" Multiplicity="0..1" />
+    <End Type="HoatDongUEHModel.HoatDongConNguoi" Role="HoatDongConNguoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoatDong">
+        <PropertyRef Name="MaHoatDong" />
+      </Principal>
+      <Dependent Role="HoatDongConNguoi">
+        <PropertyRef Name="MaHoatDong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoatDongCoSo_HoatDong">
+    <End Type="HoatDongUEHModel.HoatDong" Role="HoatDong" Multiplicity="1" />
+    <End Type="HoatDongUEHModel.HoatDongCoSo" Role="HoatDongCoSo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoatDong">
+        <PropertyRef Name="MaHoatDong" />
+      </Principal>
+      <Dependent Role="HoatDongCoSo">
+        <PropertyRef Name="MaHoatDong" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoatDongConNguoi_VaiTro">
+    <End Type="HoatDongUEHModel.VaiTro" Role="VaiTro" Multiplicity="0..1" />
+    <End Type="HoatDongUEHModel.HoatDongConNguoi" Role="HoatDongConNguoi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VaiTro">
+        <PropertyRef Name="MaVaiTro" />
+      </Principal>
+      <Dependent Role="HoatDongConNguoi">
+        <PropertyRef Name="MaVaiTro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="HoatDongCuocThiHot">
+    <Key>
+      <PropertyRef Name="MaHoatDong" />
+    </Key>
+    <Property Name="MaHoatDong" Type="Int32" Nullable="false" />
+    <Property Name="TenHoatDong" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NgayToChuc" Type="DateTime" Precision="0" />
+    <Property Name="MaDonVi" Type="Int32" />
+    <Property Name="MaNhomHoatDong" Type="Int32" />
+    <Property Name="HocKi" Type="Boolean" />
+    <Property Name="SLSV" Type="Int32" />
+    <Property Name="DiemDanhGia" Type="Single" />
+    <Property Name="GiaVe" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Requirements" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Benefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Targets" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HoatDongCuocThiOnGoing">
+    <Key>
+      <PropertyRef Name="MaHoatDong" />
+    </Key>
+    <Property Name="MaHoatDong" Type="Int32" Nullable="false" />
+    <Property Name="TenHoatDong" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="NgayToChuc" Type="DateTime" Precision="0" />
+    <Property Name="MaDonVi" Type="Int32" />
+    <Property Name="MaNhomHoatDong" Type="Int32" />
+    <Property Name="HocKi" Type="Boolean" />
+    <Property Name="SLSV" Type="Int32" />
+    <Property Name="DiemDanhGia" Type="Single" />
+    <Property Name="GiaVe" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Requirements" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Benefits" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Targets" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DangNhap">
+    <Key>
+      <PropertyRef Name="MaSinhVien" />
+    </Key>
+    <Property Name="MaSinhVien" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+</Schema>

@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="en-US">
+  <Title Text="Dashboard" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>SQL Data Source 1</Name>
+      <Connection Name="localhost_HoatDongUEH_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="HoatDongUEH" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+          <Parameter Name="userid" Value="" />
+          <Parameter Name="password" Value="" />
+        </Parameters>
+      </Connection>
+      <Query Type="TableQuery" Name="HoatDong">
+        <Table Name="HoatDong">
+          <Column Name="MaHoatDong" />
+          <Column Name="TenHoatDong" />
+          <Column Name="NgayToChuc" />
+          <Column Name="MaDonVi" />
+          <Column Name="MaNhomHoatDong" />
+          <Column Name="HocKi" />
+          <Column Name="SLSV" />
+          <Column Name="DiemDanhGia" />
+          <Column Name="GiaVe" />
+          <Column Name="Picture" />
+          <Column Name="Description" />
+          <Column Name="Requirements" />
+          <Column Name="Benefits" />
+          <Column Name="Targets" />
+        </Table>
+        <Table Name="DonVi">
+          <Column Name="MaDonVi" Alias="DonVi_MaDonVi" />
+          <Column Name="TenDonVi" />
+        </Table>
+        <Table Name="NhomHoatDong">
+          <Column Name="MaNhomHoatDong" Alias="NhomHoatDong_MaNhomHoatDong" />
+          <Column Name="TenNhomHoatDong" />
+        </Table>
+        <Relation Type="Inner" Parent="HoatDong" Nested="DonVi">
+          <KeyColumn Parent="MaDonVi" Nested="MaDonVi" />
+        </Relation>
+        <Relation Type="Inner" Parent="HoatDong" Nested="NhomHoatDong">
+          <KeyColumn Parent="MaNhomHoatDong" Nested="MaNhomHoatDong" />
+        </Relation>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 1">
+          <View Name="HoatDong">
+            <Field Name="MaHoatDong" Type="Int32" />
+            <Field Name="TenHoatDong" Type="String" />
+            <Field Name="NgayToChuc" Type="DateTime" />
+            <Field Name="MaDonVi" Type="Int32" />
+            <Field Name="MaNhomHoatDong" Type="Int32" />
+            <Field Name="HocKi" Type="Boolean" />
+            <Field Name="SLSV" Type="Int32" />
+            <Field Name="DiemDanhGia" Type="Single" />
+            <Field Name="GiaVe" Type="Decimal" />
+            <Field Name="Picture" Type="ByteArray" />
+            <Field Name="Description" Type="String" />
+            <Field Name="Requirements" Type="String" />
+            <Field Name="Benefits" Type="String" />
+            <Field Name="Targets" Type="String" />
+            <Field Name="DonVi_MaDonVi" Type="Int32" />
+            <Field Name="TenDonVi" Type="String" />
+            <Field Name="NhomHoatDong_MaNhomHoatDong" Type="Int32" />
+            <Field Name="TenNhomHoatDong" Type="String" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Đơn vị tổ chức cuộc thi theo thời gian" DataSource="dashboardSqlDataSource1" DataMember="HoatDong">
+      <DataItems>
+        <Dimension DataMember="TenDonVi" UniqueName="DataItem2" />
+        <Dimension DataMember="NgayToChuc" DateTimeGroupInterval="Month" UniqueName="DataItem1" />
+        <Measure DataMember="MaHoatDong" SummaryType="CountDistinct" UniqueName="DataItem0" />
+      </DataItems>
+      <SeriesDimensions>
+        <SeriesDimension UniqueName="DataItem2" />
+      </SeriesDimensions>
+      <Arguments>
+        <Argument UniqueName="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple SeriesType="StackedBar">
+              <Value UniqueName="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Grid ComponentName="gridDashboardItem1" Name="Top 10 hoạt động có lượng sinh viên tham gia cao nhất" DataSource="dashboardSqlDataSource1" DataMember="HoatDong">
+      <DataItems>
+        <Dimension DataMember="TenHoatDong" TopNEnabled="true" TopNCount="10" TopNMeasure="DataItem1" UniqueName="DataItem0" />
+        <Measure DataMember="SLSV" UniqueName="DataItem1" />
+        <Dimension DataMember="NgayToChuc" DateTimeGroupInterval="Day" UniqueName="DataItem3" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension UniqueName="DataItem3" />
+      </HiddenDimensions>
+      <FormatRules>
+        <GridItemFormatRule Name="FormatRule 1" DataItem="DataItem1">
+          <FormatConditionRangeGradient ValueType="Percent">
+            <RangeSet>
+              <Ranges>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="0" />
+                  <AppearanceSettings AppearanceType="GradientGreen" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="10" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="20" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="30" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="40" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="50" />
+                  <AppearanceSettings AppearanceType="GradientTransparent" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="60" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="70" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="80" />
+                </RangeInfo>
+                <RangeInfo>
+                  <Value Type="System.Double" Value="90" />
+                  <AppearanceSettings AppearanceType="GradientBlue" />
+                </RangeInfo>
+              </Ranges>
+            </RangeSet>
+          </FormatConditionRangeGradient>
+        </GridItemFormatRule>
+      </FormatRules>
+      <GridColumns>
+        <GridDimensionColumn Name="Tên Hoạt Động">
+          <Dimension UniqueName="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="Số Lượng">
+          <Measure UniqueName="DataItem1" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <Pie ComponentName="pieDashboardItem1" Name="Tỷ lệ loại hoạt động theo cuộc thi" DataSource="dashboardSqlDataSource1" DataMember="HoatDong">
+      <DataItems>
+        <Measure DataMember="MaHoatDong" SummaryType="Count" UniqueName="DataItem0" />
+        <Dimension DataMember="TenNhomHoatDong" UniqueName="DataItem2" />
+      </DataItems>
+      <Arguments>
+        <Argument UniqueName="DataItem2" />
+      </Arguments>
+      <Values>
+        <Value UniqueName="DataItem0" />
+      </Values>
+    </Pie>
+    <Grid ComponentName="gridDashboardItem2" Name="Điểm đánh giá theo cuộc thi" DataSource="dashboardSqlDataSource1" DataMember="HoatDong">
+      <DataItems>
+        <Dimension DataMember="TenHoatDong" UniqueName="DataItem1" />
+        <Measure DataMember="DiemDanhGia" UniqueName="DataItem0" />
+        <Dimension DataMember="NgayToChuc" DateTimeGroupInterval="Day" UniqueName="DataItem3" />
+      </DataItems>
+      <HiddenDimensions>
+        <Dimension UniqueName="DataItem3" />
+      </HiddenDimensions>
+      <FormatRules>
+        <GridItemFormatRule Name="FormatRule 1" DataItem="DataItem0" />
+      </FormatRules>
+      <GridColumns>
+        <GridDimensionColumn Name="Tên Hoạt Động">
+          <Dimension UniqueName="DataItem1" />
+        </GridDimensionColumn>
+        <GridMeasureColumn Name="Điểm Đánh Giá">
+          <Measure UniqueName="DataItem0" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+    <RangeFilter ComponentName="rangeFilterDashboardItem1" Name="Range Filter 1" DataSource="dashboardSqlDataSource1" DataMember="HoatDong">
+      <DataItems>
+        <Dimension DataMember="DiemDanhGia" UniqueName="DataItem0" />
+        <Measure DataMember="DiemDanhGia" UniqueName="DataItem1" />
+      </DataItems>
+      <Argument UniqueName="DataItem0" />
+      <Series>
+        <Simple SeriesType="Line">
+          <Value UniqueName="DataItem1" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+    <RangeFilter ComponentName="rangeFilterDashboardItem2" Name="Range Filter 2" DataSource="dashboardSqlDataSource1" DataMember="HoatDong">
+      <DataItems>
+        <Measure DataMember="MaHoatDong" UniqueName="DataItem1" />
+        <Dimension DataMember="NgayToChuc" DateTimeGroupInterval="DayMonthYear" UniqueName="DataItem0" />
+      </DataItems>
+      <Argument UniqueName="DataItem0" />
+      <Series>
+        <Simple SeriesType="Line">
+          <Value UniqueName="DataItem1" />
+        </Simple>
+      </Series>
+    </RangeFilter>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup Orientation="Vertical">
+      <LayoutItem DashboardItem="rangeFilterDashboardItem2" Weight="18.459069020866774" />
+      <LayoutGroup Weight="39.967897271268058">
+        <LayoutItem DashboardItem="pieDashboardItem1" Weight="52.036199095022624" />
+        <LayoutItem DashboardItem="gridDashboardItem1" Weight="47.963800904977376" />
+      </LayoutGroup>
+      <LayoutGroup Weight="41.573033707865171">
+        <LayoutGroup Orientation="Vertical" Weight="55.022624434389144">
+          <LayoutItem DashboardItem="gridDashboardItem2" Weight="49.80694980694981" />
+          <LayoutItem DashboardItem="rangeFilterDashboardItem1" Weight="25.096525096525095" />
+        </LayoutGroup>
+        <LayoutItem DashboardItem="chartDashboardItem1" Weight="44.977375565610856" />
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
